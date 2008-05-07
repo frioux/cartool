@@ -1,0 +1,2 @@
+module OilTypesHelper
+end

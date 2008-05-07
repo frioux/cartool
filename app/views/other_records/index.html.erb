@@ -1,0 +1,24 @@
+<h1>Listing other_records</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Odometer reading</th>
+    <th>Date</th>
+  </tr>
+
+<% for other_record in @other_records %>
+  <tr>
+    <td><%=h other_record.name %></td>
+    <td><%=h other_record.odometer_reading %></td>
+    <td><%=h other_record.date %></td>
+    <td><%= link_to 'Show', other_record %></td>
+    <td><%= link_to 'Edit', edit_other_record_path(other_record) %></td>
+    <td><%= link_to 'Destroy', other_record, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New other_record', new_other_record_path %>

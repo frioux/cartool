@@ -1,0 +1,28 @@
+<p>
+  <b>Quarts:</b>
+  <%=h @oil_record.quarts %>
+</p>
+
+<p>
+  <b>Odometer reading:</b>
+  <%=h @oil_record.odometer_reading %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @oil_record.date %>
+</p>
+
+<p>
+  <b>Oil type:</b>
+  <%=h @oil_record.oil_type.name %>
+</p>
+
+<p>
+  <b>Oil vendor:</b>
+  <%=h @oil_record.oil_vendor.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_oil_record_path(@oil_record) %> |
+<%= link_to 'Back', oil_records_path %>

@@ -1,0 +1,34 @@
+<h1><%= title %></h1>
+
+<%= error_messages_for :gas_record %>
+
+<% form_for(@gas_record) do |f| %>
+  <p>
+    <b>Gallons</b><br />
+    <%= f.text_field :gallons %>
+  </p>
+
+  <p>
+    <b>Odometer reading</b><br />
+    <%= f.text_field :odometer_reading %>
+  </p>
+
+  <p>
+    <b>Date</b><br />
+    <%= f.date_select :date %>
+  </p>
+
+  <p>
+  <b>Gas type</b><br />
+<select id="gas_record_gas_type_id" name="gas_record[gas_type_id]"><% GasType.find(:all).each do |type| %><option value="<%= type.id %>"><%= type.name %></option><% end %></select>
+  </p>
+
+  <p>
+  <b>Gas vendor</b><br />
+<select id="gas_record_gas_vendor_id" name="gas_record[gas_vendor_id]"><% GasVendor.find(:all).each do |vendor| %><option value="<%= vendor.id %>"><%= vendor.name %><% end %></option></select>
+  </p>
+
+  <p>
+    <%= f.submit submit_string %>
+  </p>
+<% end %>

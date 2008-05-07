@@ -1,0 +1,34 @@
+<h1><%=h title %></h1>
+
+<%= error_messages_for :other_record %>
+
+<% form_for(@other_record) do |f| %>
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>Description</b><br />
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <b>Odometer reading</b><br />
+    <%= f.text_field :odometer_reading %>
+  </p>
+
+  <p>
+    <b>Miles good</b><br />
+    <%= f.text_field :miles_good %>
+    </p>
+
+  <p>
+    <b>Date</b><br />
+    <%= f.date_select :date %>
+  </p>
+
+  <p>
+    <%= f.submit submit_string %>
+  </p>
+<% end %>

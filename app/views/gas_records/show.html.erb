@@ -1,0 +1,28 @@
+<p>
+  <b>Gallons:</b>
+  <%=h @gas_record.gallons %>
+</p>
+
+<p>
+  <b>Odometer reading:</b>
+  <%=h @gas_record.odometer_reading %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @gas_record.date %>
+</p>
+
+<p>
+  <b>Gas type:</b>
+  <%=h @gas_record.gas_type.name %>
+</p>
+
+<p>
+  <b>Gas vendor:</b>
+  <%=h @gas_record.gas_vendor.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_gas_record_path(@gas_record) %> |
+<%= link_to 'Back', gas_records_path %>

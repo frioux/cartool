@@ -1,0 +1,20 @@
+<h1>Listing oil_vendors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% for oil_vendor in @oil_vendors %>
+  <tr>
+    <td><%=h oil_vendor.name %></td>
+    <td><%= link_to 'Show', oil_vendor %></td>
+    <td><%= link_to 'Edit', edit_oil_vendor_path(oil_vendor) %></td>
+    <td><%= link_to 'Destroy', oil_vendor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New oil_vendor', new_oil_vendor_path %>

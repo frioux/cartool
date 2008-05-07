@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  quarts: 1
+  odometer_reading: 1
+  date: 2008-05-06
+  oil_type_id: 1
+  oil_vendor_id: 1
+
+two:
+  quarts: 1
+  odometer_reading: 1
+  date: 2008-05-06
+  oil_type_id: 1
+  oil_vendor_id: 1

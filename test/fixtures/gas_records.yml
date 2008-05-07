@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  gallons: 1
+  odometer_reading: 1
+  date: 2008-05-06
+  gas_type_id: 1
+  gas_vendor_id: 1
+
+two:
+  gallons: 1
+  odometer_reading: 1
+  date: 2008-05-06
+  gas_type_id: 1
+  gas_vendor_id: 1

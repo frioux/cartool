@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  odometer_reading: 1
+  date: 2008-05-06
+
+two:
+  name: MyString
+  description: MyText
+  odometer_reading: 1
+  date: 2008-05-06

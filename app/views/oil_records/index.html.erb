@@ -1,0 +1,24 @@
+<h1>Listing Oil Record</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Odometer reading</th>
+    <th>Quarts</th>
+  </tr>
+
+<% for oil_record in @oil_records %>
+  <tr>
+    <td><%=h oil_record.date %></td>
+    <td><%=h oil_record.odometer_reading %></td>
+    <td><%=h oil_record.quarts %></td>
+    <td><%= link_to 'Show', oil_record %></td>
+    <td><%= link_to 'Edit', edit_oil_record_path(oil_record) %></td>
+    <td><%= link_to 'Destroy', oil_record, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New oil_record', new_oil_record_path %>

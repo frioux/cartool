@@ -1,0 +1,24 @@
+<h1>Listing gas_records</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Odometer reading</th>
+    <th>Gallons</th>
+  </tr>
+
+<% for gas_record in @gas_records %>
+  <tr>
+    <td><%=h gas_record.date %></td>
+    <td><%=h gas_record.odometer_reading %></td>
+    <td><%=h gas_record.gallons %></td>
+    <td><%= link_to 'Show', gas_record %></td>
+    <td><%= link_to 'Edit', edit_gas_record_path(gas_record) %></td>
+    <td><%= link_to 'Destroy', gas_record, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New gas_record', new_gas_record_path %>

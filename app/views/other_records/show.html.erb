@@ -1,0 +1,27 @@
+<p>
+  <b>Name:</b>
+  <%=h @other_record.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @other_record.description %>
+</p>
+
+<p>
+  <b>Odometer reading:</b>
+  <%=h @other_record.odometer_reading %>
+</p>
+
+<p>
+  <b>Good till:</b> <%=h @other_record.odometer_reading + @other_record.miles_good %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @other_record.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_other_record_path(@other_record) %> |
+<%= link_to 'Back', other_records_path %>

@@ -1,0 +1,39 @@
+<h1><%= title %></h1>
+
+<%= error_messages_for :oil_record %>
+<% form_for(@oil_record) do |f| %>
+  <p>
+    <b>Quarts</b><br />
+    <%= f.text_field :quarts %>
+  </p>
+
+  <p>
+    <b>Odometer reading</b><br />
+    <%= f.text_field :odometer_reading %>
+  </p>
+
+  <p>
+    <b>Date</b><br />
+    <%= f.date_select :date %>
+  </p>
+
+  <p>
+  <b>Oil type</b><br />
+  <select id="oil_record_oil_type_id" name="oil_record[oil_type_id]"><% OilType.find(:all).each do |type| %>
+      <option value="<%= type.id %>"><%= type.name %></option>
+    <% end %>
+  </select>
+  </p>
+
+  <p>
+    <b>Oil vendor</b><br />
+  <select id="oil_record_oil_vendor_id" name="oil_record[oil_vendor_id]"><% OilVendor.find(:all).each do |vendor| %>
+      <option value="<%= vendor.id %>"><%= vendor.name %></option>
+    <% end %>
+  </select>
+  </p>
+
+  <p>
+    <%= f.submit sub %>
+  </p>
+<% end %>

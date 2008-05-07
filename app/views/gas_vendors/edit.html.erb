@@ -1,0 +1,17 @@
+<h1>Editing gas_vendor</h1>
+
+<%= error_messages_for :gas_vendor %>
+
+<% form_for(@gas_vendor) do |f| %>
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @gas_vendor %> |
+<%= link_to 'Back', gas_vendors_path %>

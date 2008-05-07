@@ -1,0 +1,20 @@
+<h1>Listing gas_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% for gas_type in @gas_types %>
+  <tr>
+    <td><%=h gas_type.name %></td>
+    <td><%= link_to 'Show', gas_type %></td>
+    <td><%= link_to 'Edit', edit_gas_type_path(gas_type) %></td>
+    <td><%= link_to 'Destroy', gas_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New gas_type', new_gas_type_path %>
