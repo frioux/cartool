@@ -20,12 +20,13 @@
 
   <p>
   <b>Gas type</b><br />
-<select id="gas_record_gas_type_id" name="gas_record[gas_type_id]"><% GasType.find(:all).each do |type| %><option value="<%= type.id %>"><%= type.name %></option><% end %></select>
+  <%= select( "gas_record", "gas_type_id", GasType.find(:all).map{|w| [w.name, w.id]}, {:include_blank => "" }) %>
   </p>
 
   <p>
   <b>Gas vendor</b><br />
-<select id="gas_record_gas_vendor_id" name="gas_record[gas_vendor_id]"><% GasVendor.find(:all).each do |vendor| %><option value="<%= vendor.id %>"><%= vendor.name %><% end %></option></select>
+
+  <%= select( "gas_record", "gas_vendor_id", GasVendor.find(:all).map{|w| [w.name, w.id]}, {:include_blank => "" }) %>
   </p>
 
   <p>

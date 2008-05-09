@@ -8,10 +8,12 @@
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
-
+  <%= link_to "Gas Records", {:controller => :gas_records, :action => :index } %> |
+  <%= link_to "Oil Records", {:controller => :oil_records, :action => :index } %>
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield  %>
 
+Average Gas Mileage: <%=  number_with_precision((GasRecord.find(:first, :order => 'id DESC').odometer_reading - GasRecord.find(:first).odometer_reading)/(GasRecord.sum('gallons') - GasRecord.find(:first).gallons),2) %>
 </body>
 </html>

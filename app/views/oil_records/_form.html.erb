@@ -19,18 +19,13 @@
 
   <p>
   <b>Oil type</b><br />
-  <select id="oil_record_oil_type_id" name="oil_record[oil_type_id]"><% OilType.find(:all).each do |type| %>
-      <option value="<%= type.id %>"><%= type.name %></option>
-    <% end %>
-  </select>
+  <%= select( "oil_record", "oil_type_id", OilType.find(:all).map{|w| [w.name, w.id]}, {:include_blank => "" }) %>
   </p>
 
   <p>
-    <b>Oil vendor</b><br />
-  <select id="oil_record_oil_vendor_id" name="oil_record[oil_vendor_id]"><% OilVendor.find(:all).each do |vendor| %>
-      <option value="<%= vendor.id %>"><%= vendor.name %></option>
-    <% end %>
-  </select>
+  <b>Oil vendor</b><br />
+
+  <%= select( "oil_record", "oil_vendor_id", OilVendor.find(:all).map{|w| [w.name, w.id]}, {:include_blank => "" }) %>
   </p>
 
   <p>

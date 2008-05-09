@@ -13,16 +13,19 @@
   <%=h @gas_record.date %>
 </p>
 
+<% unless @gas_record.gas_type.nil? %>
 <p>
   <b>Gas type:</b>
   <%=h @gas_record.gas_type.name %>
-</p>
+  </p>
+<% end %>
 
+<% unless @gas_record.gas_vendor.nil? %>
 <p>
   <b>Gas vendor:</b>
   <%=h @gas_record.gas_vendor.name %>
 </p>
-
+<% end %>
 
 <%= link_to 'Edit', edit_gas_record_path(@gas_record) %> |
 <%= link_to 'Back', gas_records_path %>
