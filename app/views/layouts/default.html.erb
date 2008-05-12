@@ -9,7 +9,8 @@
 </head>
 <body>
   <%= link_to "Gas Records", {:controller => :gas_records, :action => :index } %> |
-  <%= link_to "Oil Records", {:controller => :oil_records, :action => :index } %>
+  <%= link_to "Oil Records", {:controller => :oil_records, :action => :index } %> |
+  <%= link_to "Other Records", {:controller => :other_records, :action => :index } %>
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield  %>

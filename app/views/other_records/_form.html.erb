@@ -20,13 +20,18 @@
 
   <p>
     <b>Miles good</b><br />
-    <%= f.text_field :miles_good %>
+    <%= f.text_field :odometer_reading_bad %>
     </p>
 
   <p>
     <b>Date</b><br />
     <%= f.date_select :date %>
-  </p>
+    </p>
+
+    <p>
+    <b>Taken care of?</b>
+    <%= f.check_box :done %>
+    </p>
 
   <p>
     <%= f.submit submit_string %>

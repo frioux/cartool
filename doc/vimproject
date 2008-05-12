@@ -1,33 +1,37 @@
 CarTool=/home/frew/tmp/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
  README
-  Rakefile
+ Rakefile
   app=app{
    controllers=controllers{
    application.rb
    gas_records_controller.rb
    gas_types_controller.rb
    gas_vendors_controller.rb
+   main_controller.rb
    oil_records_controller.rb
    oil_types_controller.rb
    oil_vendors_controller.rb
    other_records_controller.rb
    }
    helpers=helpers{
-    application_helper.rb
-     gas_records_helper.rb
-     gas_types_helper.rb
-     gas_vendors_helper.rb
-     oil_records_helper.rb
-     oil_types_helper.rb
-     oil_vendors_helper.rb
+   application_helper.rb
+   gas_records_helper.rb
+   gas_types_helper.rb
+   gas_vendors_helper.rb
+   main_helper.rb
+   oil_records_helper.rb
+   oil_types_helper.rb
+   oil_vendors_helper.rb
+   other_records_helper.rb
    }
    models=models{
-    gas_record.rb
-     gas_type.rb
-     gas_vendor.rb
-     oil_record.rb
-     oil_type.rb
-     oil_vendor.rb
+   gas_record.rb
+   gas_type.rb
+   gas_vendor.rb
+   oil_record.rb
+   oil_type.rb
+   oil_vendor.rb
+   other_record.rb
    }
    views=views{
    layouts=layouts{
@@ -41,79 +45,86 @@ CarTool=/home/frew/tmp/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
     other_records.html.erb
    }
     oil_types=oil_types{
-     edit.html.erb
-      index.html.erb
-      new.html.erb
-      show.html.erb
-    }
-    oil_vendors=oil_vendors{
-     edit.html.erb
-      index.html.erb
-      new.html.erb
-      show.html.erb
-    }
-    oil_records=oil_records{
-     edit.html.erb
-      index.html.erb
-      new.html.erb
-      show.html.erb
-      _form.html.erb
-    }
-    gas_types=gas_types{
-     edit.html.erb
-      index.html.erb
-      new.html.erb
-      show.html.erb
-    }
-    gas_vendors=gas_vendors{
-     edit.html.erb
-      index.html.erb
-      new.html.erb
-      show.html.erb
-    }
-    gas_records=gas_records{
-     edit.html.erb
-      index.html.erb
-      new.html.erb
-      show.html.erb
-      _form.html.erb
-    }
-   other_records=other_records{
     edit.html.erb
     index.html.erb
     new.html.erb
     show.html.erb
+    }
+    oil_vendors=oil_vendors{
+    edit.html.erb
+    index.html.erb
+    new.html.erb
+    show.html.erb
+    }
+    oil_records=oil_records{
     _form.html.erb
+    edit.html.erb
+    index.html.erb
+    new.html.erb
+    show.html.erb
+    }
+    gas_types=gas_types{
+    edit.html.erb
+    index.html.erb
+    new.html.erb
+    show.html.erb
+    }
+    gas_vendors=gas_vendors{
+    edit.html.erb
+    index.html.erb
+    new.html.erb
+    show.html.erb
+    }
+    gas_records=gas_records{
+    _form.html.erb
+    edit.html.erb
+    index.html.erb
+    new.html.erb
+    show.html.erb
+    }
+   other_records=other_records{
+    _form.html.erb
+    edit.html.erb
+    index.html.erb
+    new.html.erb
+    show.html.erb
    }
    }
   }
  config=config{
   boot.rb
-   database.yml
-   environment.rb
-   routes.rb
+  database.yml
+  environment.rb
+  routes.rb
    environments=environments{
-    development.rb
-     production.rb
-     test.rb
+   development.rb
+   production.rb
+   test.rb
    }
  }
  db=db{
+  schema.rb
   migrate=migrate{
    001_create_oil_vendors.rb
-    002_create_oil_types.rb
-    003_create_oil_records.rb
-    004_create_gas_types.rb
-    005_create_gas_vendors.rb
-    006_create_gas_records.rb
+   002_create_oil_types.rb
+   003_create_oil_records.rb
+   004_create_gas_types.rb
+   005_create_gas_vendors.rb
+   006_create_gas_records.rb
+   007_create_other_records.rb
+   008_change_integers_to_floats_for_oil_and_gas.rb
+   009_add_miles_good_to_other_record.rb
+   010_add_done_to_other_record.rb
+   011_add_price_to_gas_records.rb
+   012_add_miles_mileage_to_gas_records.rb
+   013_add_miles_per_dollar_to_gas_records.rb
   }
-  schema.rb
  }
  doc=doc{
   README_FOR_APP
-   in.vim
-   out.vim
-   vimproject
+  in.vim
+  out.vim
+  vimproject
  }
  lib=lib{
   tasks=tasks{
@@ -121,70 +132,70 @@ CarTool=/home/frew/tmp/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
  }
  log=log{
   development.log
-   production.log
-   server.log
-   test.log
  }
  public=public{
   404.html
-   422.html
-   500.html
-   dispatch.cgi
-   dispatch.fcgi
-   dispatch.rb
-   favicon.ico
-   index.html
-   robots.txt
+  422.html
+  500.html
+  dispatch.cgi
+  dispatch.fcgi
+  dispatch.rb
+  favicon.ico
+  index.html
+  robots.txt
    images=images{
-    rails.png
+   rails.png
    }
   stylesheets=stylesheets{
    scaffold.css
   }
   javascripts=javascripts{
    application.js
-    controls.js
-    dragdrop.js
-    effects.js
-    prototype.js
+   controls.js
+   dragdrop.js
+   effects.js
+   prototype.js
   }
  }
  script=script{
   about
-   console
-   destroy
-   generate
-   plugin
-   runner
-   server
+  console
+  destroy
+  generate
+  plugin
+  runner
+  server
    performance=performance{
-    benchmarker
-     profiler
-     request
+   benchmarker
+   profiler
+   request
    }
   process=process{
    inspector
-    reaper
-    spawner
+   reaper
+   spawner
   }
  }
  test=test{
   test_helper.rb
    fixtures=fixtures{
-    gas_records.yml
-     gas_types.yml
-     gas_vendors.yml
-     oil_records.yml
-     oil_types.yml
-     oil_vendors.yml
+   gas_records.yml
+   gas_types.yml
+   gas_vendors.yml
+   oil_records.yml
+   oil_types.yml
+   oil_vendors.yml
+   other_records.yml
    }
   functional=functional{
    gas_records_controller_test.rb
-    gas_types_controller_test.rb
-    gas_vendors_controller_test.rb
-    oil_records_controller_test.rb
-    oil_types_controller_test.rb
-    oil_vendors_controller_test.rb
+   gas_types_controller_test.rb
+   gas_vendors_controller_test.rb
+   main_controller_test.rb
+   oil_records_controller_test.rb
+   oil_types_controller_test.rb
+   oil_vendors_controller_test.rb
+   other_records_controller_test.rb
   }
   integration=integration{
   }
@@ -196,11 +207,12 @@ CarTool=/home/frew/tmp/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
   }
   unit=unit{
    gas_record_test.rb
-    gas_type_test.rb
-    gas_vendor_test.rb
-    oil_record_test.rb
-    oil_type_test.rb
-    oil_vendor_test.rb
+   gas_type_test.rb
+   gas_vendor_test.rb
+   oil_record_test.rb
+   oil_type_test.rb
+   oil_vendor_test.rb
+   other_record_test.rb
   }
  }
  tmp=tmp{

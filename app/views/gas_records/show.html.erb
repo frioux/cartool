@@ -1,30 +1,32 @@
-<p>
   <b>Gallons:</b>
-  <%=h @gas_record.gallons %>
-</p>
-
-<p>
+  <%=h @gas_record.gallons %><br />
   <b>Odometer reading:</b>
-  <%=h @gas_record.odometer_reading %>
-</p>
-
-<p>
+  <%=h @gas_record.odometer_reading %><br />
   <b>Date:</b>
-  <%=h @gas_record.date %>
-</p>
-
+  <%=h @gas_record.date %><br />
 <% unless @gas_record.gas_type.nil? %>
-<p>
-  <b>Gas type:</b>
-  <%=h @gas_record.gas_type.name %>
-  </p>
+  <b>Type:</b>
+  <%=h @gas_record.gas_type.name %><br />
 <% end %>
 
 <% unless @gas_record.gas_vendor.nil? %>
-<p>
-  <b>Gas vendor:</b>
-  <%=h @gas_record.gas_vendor.name %>
-</p>
+  <b>Vendor:</b>
+  <%=h @gas_record.gas_vendor.name %><br />
+<% end %>
+
+<% unless @gas_record.price.nil? %>
+  <b>Price:</b>
+  <%=h number_to_currency(@gas_record.price) %><br />
+<% end %>
+
+<% unless @gas_record.mileage.nil? %>
+  <b>Mileage:</b>
+  <%=h @gas_record.mileage %><br />
+<% end %>
+
+<% unless @gas_record.miles_per_dollar.nil? %>
+  <b>Miles per Dollar:</b>
+  <%=h @gas_record.miles_per_dollar %><br />
 <% end %>
 
 <%= link_to 'Edit', edit_gas_record_path(@gas_record) %> |

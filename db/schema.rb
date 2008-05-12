@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 9) do
+ActiveRecord::Schema.define(:version => 13) do
 
   create_table "gas_records", :force => true do |t|
     t.float    "gallons"
@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(:version => 9) do
     t.integer  "gas_vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "price",            :precision => 4, :scale => 2
+    t.integer  "miles"
+    t.float    "mileage"
+    t.float    "miles_per_dollar"
   end
 
   create_table "gas_types", :force => true do |t|
@@ -62,7 +66,8 @@ ActiveRecord::Schema.define(:version => 9) do
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "miles_good"
+    t.integer  "odometer_reading_bad"
+    t.boolean  "done"
   end
 
 end
