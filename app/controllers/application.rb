@@ -7,4 +7,6 @@ class ApplicationController < ActionController::Base
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '42f64626dda1d2701074005a50cfe08a'
+include AuthenticatedSystem
 end
+

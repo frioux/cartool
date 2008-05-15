@@ -1,9 +1,10 @@
 class OtherRecordsController < ApplicationController
+  before_filter :login_required, :except => :show
   layout "default"
   # GET /other_records
   # GET /other_records.xml
   def index
-    @other_records = OtherRecord.find(:all)
+    @other_records = current_user.other_records
 
     respond_to do |format|
       format.html # index.html.erb

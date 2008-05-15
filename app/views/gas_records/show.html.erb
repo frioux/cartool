@@ -20,6 +20,8 @@
 <% end %>
 
 <% unless @gas_record.mileage.nil? %>
+  <b>Miles</b>
+  <%=h @gas_record.miles %><br />
   <b>Mileage:</b>
   <%=h @gas_record.mileage %><br />
 <% end %>

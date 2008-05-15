@@ -1,0 +1,26 @@
+<h1>Listing cars</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Make</th>
+    <th>Model</th>
+    <th>User</th>
+  </tr>
+
+<% for car in @cars %>
+  <tr>
+    <td><%=h car.name %></td>
+    <td><%=h car.make %></td>
+    <td><%=h car.model %></td>
+    <td><%=h car.user %></td>
+    <td><%= link_to 'Show', car %></td>
+    <td><%= link_to 'Edit', edit_car_path(car) %></td>
+    <td><%= link_to 'Destroy', car, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New car', new_car_path %>

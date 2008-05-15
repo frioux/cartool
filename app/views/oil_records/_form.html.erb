@@ -5,7 +5,12 @@
   <p>
     <b>Quarts</b><br />
     <%= f.text_field :quarts %>
-  </p>
+    </p>
+
+    <p>
+    <b>Car</b><br />
+    <%= select( "oil_record", "car_id", Car.find(:all).map{|w| [w.name, w.id]}) %>
+    </p>
 
   <p>
     <b>Odometer reading</b><br />

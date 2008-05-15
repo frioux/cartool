@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 13) do
+ActiveRecord::Schema.define(:version => 22) do
+
+  create_table "cars", :force => true do |t|
+    t.string   "name"
+    t.string   "make"
+    t.string   "model"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "year"
+  end
 
   create_table "gas_records", :force => true do |t|
     t.float    "gallons"
@@ -23,6 +33,7 @@ ActiveRecord::Schema.define(:version => 13) do
     t.integer  "miles"
     t.float    "mileage"
     t.float    "miles_per_dollar"
+    t.integer  "car_id"
   end
 
   create_table "gas_types", :force => true do |t|
@@ -45,6 +56,7 @@ ActiveRecord::Schema.define(:version => 13) do
     t.integer  "oil_vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "car_id"
   end
 
   create_table "oil_types", :force => true do |t|
@@ -68,6 +80,37 @@ ActiveRecord::Schema.define(:version => 13) do
     t.datetime "updated_at"
     t.integer  "odometer_reading_bad"
     t.boolean  "done"
+    t.integer  "car_id"
+  end
+
+  create_table "permissions", :force => true do |t|
+    t.integer  "role_id",    :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "rolename"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "login"
+    t.string   "email"
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_token"
+    t.datetime "remember_token_expires_at"
+    t.string   "activation_code",           :limit => 40
+    t.datetime "activated_at"
+    t.string   "password_reset_code",       :limit => 40
+    t.boolean  "enabled",                                 :default => true
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
 end

@@ -13,6 +13,11 @@
     <%= f.text_area :description %>
   </p>
 
+    <p>
+    <b>Car</b><br />
+    <%= select( "other_record", "car_id", Car.find(:all).map{|w| [w.name, w.id]}) %>
+    </p>
+
   <p>
     <b>Odometer reading</b><br />
     <%= f.text_field :odometer_reading %>

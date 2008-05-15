@@ -1,9 +1,10 @@
 class GasRecordsController < ApplicationController
   layout 'default'
+  before_filter :login_required, :except => :show
   # GET /gas_records
   # GET /gas_records.xml
   def index
-    @gas_records = GasRecord.find(:all)
+    @gas_records = current_user.gas_records
 
     respond_to do |format|
       format.html # index.html.erb

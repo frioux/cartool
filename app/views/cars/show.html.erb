@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @car.name %>
+</p>
+
+<p>
+  <b>Make:</b>
+  <%=h @car.make %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%=h @car.model %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%=h @car.year %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @car.user.login %>
+</p>
+
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>

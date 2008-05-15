@@ -1,9 +1,10 @@
 class OilRecordsController < ApplicationController
   layout 'default'
+  before_filter :login_required, :except => :show
   # GET /oil_records
   # GET /oil_records.xml
   def index
-    @oil_records = OilRecord.find(:all)
+    @oil_records = current_user.oil_records
 
     respond_to do |format|
       format.html # index.html.erb

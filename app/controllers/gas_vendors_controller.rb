@@ -1,5 +1,6 @@
 class GasVendorsController < ApplicationController
   layout 'default'
+  before_filter :login_required, :except => :show
   # GET /gas_vendors
   # GET /gas_vendors.xml
   def index

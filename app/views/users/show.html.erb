@@ -1,0 +1,7 @@
+<h2>User: <%=h @user.login %></h2>
+<p>Email: <%= @user.email %></p>
+<p>First Name: <%= @user.first_name %></p>
+<p>Last Name: <%= @user.last_name %></p>
+<p>Joined on: <%= @user.created_at.to_s(:long) %></p>
+
+<%= link_to 'Edit Profile', edit_user_path(current_user) %>

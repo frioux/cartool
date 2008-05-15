@@ -1,4 +1,5 @@
 class GasTypesController < ApplicationController
+  before_filter :login_required, :except => :show
   layout 'default'
   # GET /gas_types
   # GET /gas_types.xml

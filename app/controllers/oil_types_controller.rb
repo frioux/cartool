@@ -1,4 +1,5 @@
 class OilTypesController < ApplicationController
+  before_filter :login_required, :except => :show
   layout 'default'
   # GET /oil_types
   # GET /oil_types.xml
