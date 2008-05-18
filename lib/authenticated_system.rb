@@ -71,6 +71,9 @@ module AuthenticatedSystem
       check_role('administrator')
     end
 
+    def check_moderator_role
+      check_role('moderator')
+    end
 
 
     # Redirect as appropriate when an access request fails.
