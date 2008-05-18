@@ -15,7 +15,7 @@ class GasRecordsController < ApplicationController
   # GET /gas_records/1
   # GET /gas_records/1.xml
   def show
-    @gas_record = GasRecord.find(params[:id])
+    @gas_record = current_user.gas_records.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +36,7 @@ class GasRecordsController < ApplicationController
 
   # GET /gas_records/1/edit
   def edit
-    @gas_record = GasRecord.find(params[:id])
+    @gas_record = current_user.gas_records.find(params[:id])
   end
 
   # POST /gas_records
@@ -59,7 +59,7 @@ class GasRecordsController < ApplicationController
   # PUT /gas_records/1
   # PUT /gas_records/1.xml
   def update
-    @gas_record = GasRecord.find(params[:id])
+    @gas_record = current_user.gas_records.find(params[:id])
 
     respond_to do |format|
       if @gas_record.update_attributes(params[:gas_record])
@@ -76,7 +76,7 @@ class GasRecordsController < ApplicationController
   # DELETE /gas_records/1
   # DELETE /gas_records/1.xml
   def destroy
-    @gas_record = GasRecord.find(params[:id])
+    @gas_record = current_user.gas_records.find(params[:id])
     @gas_record.destroy
 
     respond_to do |format|

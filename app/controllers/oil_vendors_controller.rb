@@ -4,7 +4,7 @@ class OilVendorsController < ApplicationController
   # GET /oil_vendors
   # GET /oil_vendors.xml
   def index
-    @oil_vendors = OilVendor.find(:all)
+    @oil_vendors = current_user.oil_vendors
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class OilVendorsController < ApplicationController
   # GET /oil_vendors/1
   # GET /oil_vendors/1.xml
   def show
-    @oil_vendor = OilVendor.find(params[:id])
+    @oil_vendor = current_user.oil_vendors.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,13 +36,14 @@ class OilVendorsController < ApplicationController
 
   # GET /oil_vendors/1/edit
   def edit
-    @oil_vendor = OilVendor.find(params[:id])
+    @oil_vendor = current_user.oil_vendors.find(params[:id])
   end
 
   # POST /oil_vendors
   # POST /oil_vendors.xml
   def create
     @oil_vendor = OilVendor.new(params[:oil_vendor])
+    @oil_vendor.user = current_user
 
     respond_to do |format|
       if @oil_vendor.save
@@ -59,7 +60,8 @@ class OilVendorsController < ApplicationController
   # PUT /oil_vendors/1
   # PUT /oil_vendors/1.xml
   def update
-    @oil_vendor = OilVendor.find(params[:id])
+    @oil_vendor = current_user.oil_vendors.find(params[:id])
+    @gas_vendor.user = current_user
 
     respond_to do |format|
       if @oil_vendor.update_attributes(params[:oil_vendor])
@@ -76,7 +78,7 @@ class OilVendorsController < ApplicationController
   # DELETE /oil_vendors/1
   # DELETE /oil_vendors/1.xml
   def destroy
-    @oil_vendor = OilVendor.find(params[:id])
+    @oil_vendor = current_user.oil_vendors.find(params[:id])
     @oil_vendor.destroy
 
     respond_to do |format|

@@ -15,7 +15,7 @@ class OilRecordsController < ApplicationController
   # GET /oil_records/1
   # GET /oil_records/1.xml
   def show
-    @oil_record = OilRecord.find(params[:id])
+    @oil_record = current_user.oil_records.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +36,7 @@ class OilRecordsController < ApplicationController
 
   # GET /oil_records/1/edit
   def edit
-    @oil_record = OilRecord.find(params[:id])
+    @oil_record = current_user.oil_records.find(params[:id])
   end
 
   # POST /oil_records
@@ -59,7 +59,7 @@ class OilRecordsController < ApplicationController
   # PUT /oil_records/1
   # PUT /oil_records/1.xml
   def update
-    @oil_record = OilRecord.find(params[:id])
+    @oil_record = current_user.oil_records.find(params[:id])
 
     respond_to do |format|
       if @oil_record.update_attributes(params[:oil_record])
@@ -76,7 +76,7 @@ class OilRecordsController < ApplicationController
   # DELETE /oil_records/1
   # DELETE /oil_records/1.xml
   def destroy
-    @oil_record = OilRecord.find(params[:id])
+    @oil_record = current_user.oil_records.find(params[:id])
     @oil_record.destroy
 
     respond_to do |format|

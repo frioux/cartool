@@ -15,7 +15,7 @@ class OtherRecordsController < ApplicationController
   # GET /other_records/1
   # GET /other_records/1.xml
   def show
-    @other_record = OtherRecord.find(params[:id])
+    @other_record = current_user.other_records.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,13 +36,14 @@ class OtherRecordsController < ApplicationController
 
   # GET /other_records/1/edit
   def edit
-    @other_record = OtherRecord.find(params[:id])
+    @other_record = current_user.other_records.find(params[:id])
   end
 
   # POST /other_records
   # POST /other_records.xml
   def create
     @other_record = OtherRecord.new(params[:other_record])
+    @other_record.user = current_user
 
     respond_to do |format|
       if @other_record.save
@@ -59,7 +60,8 @@ class OtherRecordsController < ApplicationController
   # PUT /other_records/1
   # PUT /other_records/1.xml
   def update
-    @other_record = OtherRecord.find(params[:id])
+    @other_record = current_user.other_records.find(params[:id])
+  end
 
     respond_to do |format|
       if @other_record.update_attributes(params[:other_record])
@@ -76,7 +78,7 @@ class OtherRecordsController < ApplicationController
   # DELETE /other_records/1
   # DELETE /other_records/1.xml
   def destroy
-    @other_record = OtherRecord.find(params[:id])
+    @other_record = current_user.other_records.find(params[:id])
     @other_record.destroy
 
     respond_to do |format|

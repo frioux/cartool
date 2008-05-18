@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   has_many :gas_records, :through => :cars
   has_many :oil_records, :through => :cars
   has_many :other_records, :through => :cars
+  has_many :gas_vendors
+  has_many :oil_vendors
 
   before_save :encrypt_password
   before_create :make_activation_code

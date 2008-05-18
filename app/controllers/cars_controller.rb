@@ -15,7 +15,7 @@ class CarsController < ApplicationController
   # GET /cars/1
   # GET /cars/1.xml
   def show
-    @car = Car.find(params[:id])
+    @car = current_user.cars.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +26,7 @@ class CarsController < ApplicationController
   # GET /cars/new
   # GET /cars/new.xml
   def new
-    @car = Car.new
+    @car = Car.new({:user => current_user})
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,13 +36,14 @@ class CarsController < ApplicationController
 
   # GET /cars/1/edit
   def edit
-    @car = Car.find(params[:id])
+    @car = current_user.cars.find(params[:id])
   end
 
   # POST /cars
   # POST /cars.xml
   def create
     @car = Car.new(params[:car])
+    @car.user = current_user
 
     respond_to do |format|
       if @car.save
@@ -59,7 +60,7 @@ class CarsController < ApplicationController
   # PUT /cars/1
   # PUT /cars/1.xml
   def update
-    @car = Car.find(params[:id])
+    @car = current_user.cars.find(params[:id])
 
     respond_to do |format|
       if @car.update_attributes(params[:car])
@@ -76,7 +77,7 @@ class CarsController < ApplicationController
   # DELETE /cars/1
   # DELETE /cars/1.xml
   def destroy
-    @car = Car.find(params[:id])
+    @car = current_user.cars.find(params[:id])
     @car.destroy
 
     respond_to do |format|

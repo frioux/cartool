@@ -4,7 +4,7 @@ class GasVendorsController < ApplicationController
   # GET /gas_vendors
   # GET /gas_vendors.xml
   def index
-    @gas_vendors = GasVendor.find(:all)
+    @gas_vendors = current_user.gas_vendors
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class GasVendorsController < ApplicationController
   # GET /gas_vendors/1
   # GET /gas_vendors/1.xml
   def show
-    @gas_vendor = GasVendor.find(params[:id])
+    @gas_vendor = current_user.gas_vendors.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,6 +27,7 @@ class GasVendorsController < ApplicationController
   # GET /gas_vendors/new.xml
   def new
     @gas_vendor = GasVendor.new
+    @gas_vendor.user = current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,13 +37,14 @@ class GasVendorsController < ApplicationController
 
   # GET /gas_vendors/1/edit
   def edit
-    @gas_vendor = GasVendor.find(params[:id])
+    @gas_vendor = current_user.gas_vendors.find(params[:id])
   end
 
   # POST /gas_vendors
   # POST /gas_vendors.xml
   def create
     @gas_vendor = GasVendor.new(params[:gas_vendor])
+    @gas_vendor.user = current_user
 
     respond_to do |format|
       if @gas_vendor.save
@@ -59,7 +61,7 @@ class GasVendorsController < ApplicationController
   # PUT /gas_vendors/1
   # PUT /gas_vendors/1.xml
   def update
-    @gas_vendor = GasVendor.find(params[:id])
+    @gas_vendor = current_user.gas_vendors.find(params[:id])
 
     respond_to do |format|
       if @gas_vendor.update_attributes(params[:gas_vendor])
@@ -76,7 +78,7 @@ class GasVendorsController < ApplicationController
   # DELETE /gas_vendors/1
   # DELETE /gas_vendors/1.xml
   def destroy
-    @gas_vendor = GasVendor.find(params[:id])
+    @gas_vendor = current_user.gas_vendors.find(params[:id])
     @gas_vendor.destroy
 
     respond_to do |format|
