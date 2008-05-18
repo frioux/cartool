@@ -26,7 +26,7 @@ class OtherRecordsController < ApplicationController
   # GET /other_records/new
   # GET /other_records/new.xml
   def new
-    @other_record = OtherRecord.new
+    @other_record = OtherRecord.new({:user => current_user})
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,7 +43,7 @@ class OtherRecordsController < ApplicationController
   # POST /other_records.xml
   def create
     @other_record = OtherRecord.new(params[:other_record])
-    @other_record.user = current_user
+    throw "unowned other record" unless current_user.cars.include? @other_record.car
 
     respond_to do |format|
       if @other_record.save

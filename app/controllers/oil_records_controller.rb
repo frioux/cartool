@@ -26,7 +26,7 @@ class OilRecordsController < ApplicationController
   # GET /oil_records/new
   # GET /oil_records/new.xml
   def new
-    @oil_record = OilRecord.new
+    @oil_record = OilRecord.new({:user => current_user})
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +43,7 @@ class OilRecordsController < ApplicationController
   # POST /oil_records.xml
   def create
     @oil_record = OilRecord.new(params[:oil_record])
+    throw "unowned oil record" unless current_user.cars.include? @oil_record.car
 
     respond_to do |format|
       if @oil_record.save
