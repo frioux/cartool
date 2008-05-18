@@ -27,6 +27,7 @@ class OilVendorsController < ApplicationController
   # GET /oil_vendors/new.xml
   def new
     @oil_vendor = OilVendor.new
+    @oil_vendor.user = current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -61,7 +62,6 @@ class OilVendorsController < ApplicationController
   # PUT /oil_vendors/1.xml
   def update
     @oil_vendor = current_user.oil_vendors.find(params[:id])
-    @gas_vendor.user = current_user
 
     respond_to do |format|
       if @oil_vendor.update_attributes(params[:oil_vendor])
