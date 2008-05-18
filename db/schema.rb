@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 22) do
+ActiveRecord::Schema.define(:version => 26) do
 
   create_table "cars", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(:version => 22) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.boolean  "national"
+    t.boolean  "admin_checked"
   end
 
   create_table "oil_records", :force => true do |t|
@@ -69,6 +72,9 @@ ActiveRecord::Schema.define(:version => 22) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.boolean  "national"
+    t.boolean  "admin_checked"
   end
 
   create_table "other_records", :force => true do |t|
