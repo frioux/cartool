@@ -1,6 +1,6 @@
 class GasRecordsController < ApplicationController
   layout 'default'
-  before_filter :login_required, :except => :show
+  before_filter :login_required
   # GET /gas_records
   # GET /gas_records.xml
   def index

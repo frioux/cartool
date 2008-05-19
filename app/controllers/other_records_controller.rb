@@ -1,5 +1,5 @@
 class OtherRecordsController < ApplicationController
-  before_filter :login_required, :except => :show
+  before_filter :login_required
   layout "default"
   # GET /other_records
   # GET /other_records.xml
@@ -43,7 +43,6 @@ class OtherRecordsController < ApplicationController
   # POST /other_records.xml
   def create
     @other_record = OtherRecord.new(params[:other_record])
-    throw "unowned other record" unless current_user.cars.include? @other_record.car
 
     respond_to do |format|
       if @other_record.save
@@ -61,7 +60,6 @@ class OtherRecordsController < ApplicationController
   # PUT /other_records/1.xml
   def update
     @other_record = current_user.other_records.find(params[:id])
-  end
 
     respond_to do |format|
       if @other_record.update_attributes(params[:other_record])

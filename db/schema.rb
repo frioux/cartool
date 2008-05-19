@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 26) do
+ActiveRecord::Schema.define(:version => 27) do
 
   create_table "cars", :force => true do |t|
     t.string   "name"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 26) do
     t.integer  "odometer_reading_bad"
     t.boolean  "done"
     t.integer  "car_id"
+    t.date     "date_good"
   end
 
   create_table "permissions", :force => true do |t|
