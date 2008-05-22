@@ -8,5 +8,6 @@ class MainController < ApplicationController
   end
 
   def todo
+    @cars = current_user.cars
   end
 end

@@ -3,14 +3,9 @@
 <%= error_messages_for :oil_record %>
 <% form_for(@oil_record) do |f| %>
   <p>
-    <b>Quarts</b><br />
-    <%= f.text_field :quarts %>
-    </p>
-
-    <p>
-    <b>Car</b><br />
-    <%= select( "oil_record", "car_id", Car.find(:all).map{|w| [w.name, w.id]}) %>
-    </p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
 
   <p>
     <b>Odometer reading</b><br />
@@ -18,22 +13,38 @@
   </p>
 
   <p>
-    <b>Date</b><br />
-    <%= f.date_select :date %>
+    <b>Car</b><br />
+    <%= f.select :car_id, Car.find(:all).map{|w| [w.name, w.id]} %>
+  </p>
+
+  <p>
+    <b>Quarts</b><br />
+    <%= f.text_field :quarts %>
   </p>
 
   <p>
   <b>Oil type</b><br />
-  <%= select( "oil_record", "oil_type_id", OilType.find(:all).map{|w| [w.name, w.id]}, {:include_blank => "" }) %>
+  <%= f.select :oil_type_id, OilType.find(:all).map{|w| [w.name, w.id]}, {:include_blank => "" } %>
   </p>
 
   <p>
   <b>Oil vendor</b><br />
+  <%= f.select :oil_vendor_id, OilVendor.find(:all).map{|w| [w.name, w.id]}, {:include_blank => "" } %>
+  </p>
 
-  <%= select( "oil_record", "oil_vendor_id", OilVendor.find(:all).map{|w| [w.name, w.id]}, {:include_blank => "" }) %>
+  <p>
+  <b>Miles good</b><br />
+  <%= f.text_field :miles_bad %>
+  </p>
+
+  <p>
+  <b>Time good</b><br />
+  <%= f.select :time_bad_type, OtherRecord::DURATIONS.map{|w| [w.capitalize, w]} %>
+  <%= f.text_field :time_bad %>
   </p>
 
   <p>
     <%= f.submit sub %>
-  </p>
-<% end %>
+    </p>
+  <% end %>
+

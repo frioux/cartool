@@ -2,49 +2,9 @@
 
 <%= error_messages_for :other_record %>
 
-<% form_for(@other_record) do |f| %>
+<% form_for(@other_record) do |other_record| %>
+  <%= render :partial => 'subform', :locals => {:other_record => other_record} %>
   <p>
-    <b>Name</b><br />
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <b>Description</b><br />
-    <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <b>Car</b><br />
-    <%= select( "other_record", "car_id", Car.find(:all).map{|w| [w.name, w.id]}) %>
-  </p>
-
-  <p>
-    <b>Odometer reading</b><br />
-    <%= f.text_field :odometer_reading %>
-  </p>
-
-  <p>
-    <b>Miles good</b><br />
-    <%= f.text_field :miles_bad %>
-    </p>
-
-  <p>
-    <b>Time good</b><br />
-    <%= f.select :time_bad_type, OtherRecord::DURATIONS.map{|w| [w.capitalize, w]} %>
-    <%= f.text_field :time_bad %>
-  </p>
-
-  <p>
-    <b>Date</b><br />
-    <%= f.date_select :date %>
-  </p>
-
-  <p>
-    <b>Taken care of?</b>
-    <%= f.check_box :done %>
-  </p>
-
-  <p>
-    <%= f.submit submit_string %>
+    <%= other_record.submit submit_string %>
   </p>
 <% end %>

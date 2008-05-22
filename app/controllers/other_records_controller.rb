@@ -26,7 +26,7 @@ class OtherRecordsController < ApplicationController
   # GET /other_records/new
   # GET /other_records/new.xml
   def new
-    @other_record = OtherRecord.new({:user => current_user})
+    @other_record = OtherRecord.new
 
     respond_to do |format|
       format.html # new.html.erb

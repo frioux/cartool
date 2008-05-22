@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 27) do
+ActiveRecord::Schema.define(:version => 30) do
 
   create_table "cars", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 27) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "year"
+    t.integer  "odometer_reading"
   end
 
   create_table "gas_records", :force => true do |t|
@@ -53,13 +54,12 @@ ActiveRecord::Schema.define(:version => 27) do
 
   create_table "oil_records", :force => true do |t|
     t.float    "quarts"
-    t.integer  "odometer_reading"
-    t.date     "date"
     t.integer  "oil_type_id"
     t.integer  "oil_vendor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "car_id"
+    t.integer  "other_record_id"
   end
 
   create_table "oil_types", :force => true do |t|

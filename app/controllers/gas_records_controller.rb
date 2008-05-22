@@ -26,7 +26,7 @@ class GasRecordsController < ApplicationController
   # GET /gas_records/new
   # GET /gas_records/new.xml
   def new
-    @gas_record = GasRecord.new({:user => current_user})
+    @gas_record = GasRecord.new({:user_id => current_user.id})
 
     respond_to do |format|
       format.html # new.html.erb

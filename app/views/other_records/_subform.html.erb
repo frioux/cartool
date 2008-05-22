@@ -1,0 +1,40 @@
+  <p>
+    <b>Name</b><br />
+    <%= other_record.text_field :name %>
+  </p>
+
+  <p>
+    <b>Description</b><br />
+    <%= other_record.text_area :description %>
+  </p>
+
+  <p>
+    <b>Car</b><br />
+    <%= other_record.select :car_id, Car.find(:all).map{|w| [w.name, w.id]} %>
+  </p>
+
+  <p>
+    <b>Odometer reading</b><br />
+    <%= other_record.text_field :odometer_reading %>
+  </p>
+
+  <p>
+    <b>Miles good</b><br />
+    <%= other_record.text_field :miles_bad %>
+    </p>
+
+  <p>
+    <b>Time good</b><br />
+    <%= other_record.select :time_bad_type, OtherRecord::DURATIONS.map{|w| [w.capitalize, w]} %>
+    <%= other_record.text_field :time_bad %>
+  </p>
+
+  <p>
+    <b>Date</b><br />
+    <%= other_record.date_select :date %>
+  </p>
+
+  <p>
+    <b>Taken care of?</b>
+    <%= other_record.check_box :done %>
+  </p>

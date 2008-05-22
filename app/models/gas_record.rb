@@ -17,4 +17,5 @@ class GasRecord < ActiveRecord::Base
       end
     end
   end
+
 end

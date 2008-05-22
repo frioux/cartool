@@ -22,11 +22,11 @@ CarTool=/home/frew/personal/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
    helpers=helpers{
    accounts_helper.rb
    application_helper.rb
+   cars_helper.rb
    gas_records_helper.rb
    gas_types_helper.rb
    gas_vendors_helper.rb
    main_helper.rb
-   oil_records_helper.rb
    oil_types_helper.rb
    oil_vendors_helper.rb
    other_records_helper.rb
@@ -51,7 +51,37 @@ CarTool=/home/frew/personal/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
    user_observer.rb
    }
    views=views{
+   accounts=accounts{
+    edit.html.erb
+   }
+   cars=cars{
+    _form.html.erb
+    edit.html.erb
+    index.html.erb
+    new.html.erb
+    show.html.erb
+   }
+    gas_types=gas_types{
+    edit.html.erb
+    index.html.erb
+    new.html.erb
+    show.html.erb
+    }
+    gas_vendors=gas_vendors{
+    edit.html.erb
+    index.html.erb
+    new.html.erb
+    show.html.erb
+    }
+    gas_records=gas_records{
+    _form.html.erb
+    edit.html.erb
+    index.html.erb
+    new.html.erb
+    show.html.erb
+    }
    layouts=layouts{
+    cars.html.erb
     default.html.erb
     gas_records.html.erb
     gas_types.html.erb
@@ -61,6 +91,11 @@ CarTool=/home/frew/personal/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
     oil_vendors.html.erb
     other_records.html.erb
     roles.html.erb
+   }
+   main=main{
+    graphs.html.erb
+    main.html.erb
+    todo.html.erb
    }
     oil_types=oil_types{
     edit.html.erb
@@ -81,31 +116,17 @@ CarTool=/home/frew/personal/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
     new.html.erb
     show.html.erb
     }
-    gas_types=gas_types{
-    edit.html.erb
-    index.html.erb
-    new.html.erb
-    show.html.erb
-    }
-    gas_vendors=gas_vendors{
-    edit.html.erb
-    index.html.erb
-    new.html.erb
-    show.html.erb
-    }
-    gas_records=gas_records{
-    _form.html.erb
-    edit.html.erb
-    index.html.erb
-    new.html.erb
-    show.html.erb
-    }
    other_records=other_records{
     _form.html.erb
+    _subform.html.erb
     edit.html.erb
     index.html.erb
     new.html.erb
     show.html.erb
+   }
+   passwords=passwords{
+    edit.html.erb
+    new.html.erb
    }
    roles=roles{
     _role.html.erb
@@ -120,20 +141,6 @@ CarTool=/home/frew/personal/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
     index.html.erb
     new.html.erb
     show.html.erb
-   }
-   passwords=passwords{
-    edit.html.erb
-    new.html.erb
-   }
-   accounts=accounts{
-    edit.html.erb
-   }
-   cars=cars{
-    edit.html.erb
-    index.html.erb
-    new.html.erb
-    show.html.erb
-    _form.html.erb
    }
    }
   }
@@ -153,7 +160,6 @@ CarTool=/home/frew/personal/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
   migrate=migrate{
    001_create_oil_vendors.rb
    002_create_oil_types.rb
-   003_create_oil_records.rb
    004_create_gas_types.rb
    005_create_gas_vendors.rb
    006_create_gas_records.rb
@@ -167,6 +173,17 @@ CarTool=/home/frew/personal/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
    014_create_users.rb
    015_create_roles.rb
    016_create_permissions.rb
+   017_add_data_to_user.rb
+   018_create_cars.rb
+   019_add_year_to_car.rb
+   020_add_car_id_to_gas_record.rb
+   021_add_car_id_to_oil_record.rb
+   022_add_car_id_to_other_record.rb
+   023_add_user_id_to_gas_vendor.rb
+   024_add_user_id_to_oil_vendor.rb
+   025_add_national_and_checked_to_gas_vendor.rb
+   026_add_national_and_checked_to_oil_vendor.rb
+   027_add_date_good_to_other_records.rb
   }
  }
  doc=doc{
@@ -198,7 +215,6 @@ CarTool=/home/frew/personal/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
    rails.png
    }
   stylesheets=stylesheets{
-   scaffold.css
   }
   javascripts=javascripts{
    application.js
@@ -230,10 +246,10 @@ CarTool=/home/frew/personal/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
  test=test{
   test_helper.rb
    fixtures=fixtures{
+   cars.yml
    gas_records.yml
    gas_types.yml
    gas_vendors.yml
-   oil_records.yml
    oil_types.yml
    oil_vendors.yml
    other_records.yml
@@ -243,11 +259,11 @@ CarTool=/home/frew/personal/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
    }
   functional=functional{
    accounts_controller_test.rb
+   cars_controller_test.rb
    gas_records_controller_test.rb
    gas_types_controller_test.rb
    gas_vendors_controller_test.rb
    main_controller_test.rb
-   oil_records_controller_test.rb
    oil_types_controller_test.rb
    oil_vendors_controller_test.rb
    other_records_controller_test.rb
@@ -265,6 +281,7 @@ CarTool=/home/frew/personal/cartool/ CD=. in=doc/in.vim out=doc/out.vim {
    }
   }
   unit=unit{
+   car_test.rb
    gas_record_test.rb
    gas_type_test.rb
    gas_vendor_test.rb

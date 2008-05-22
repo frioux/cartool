@@ -1,2 +1,14 @@
-<h1>Main#todo</h1>
-<p>Find me in app/views/main/todo.html.erb</p>
+<h3>Urgent</h2>
+<% @cars.each do |car| %>
+  For <%=h car.name %>:<br />
+  <% car.todo_list.each do |todo_item| %>
+    <%= todo_item.name %> by odometer reading of <%= todo_item.odometer_reading_bad %> or <%= todo_item.date_good %>
+  <% end %>
+<% end %>
+<h3>Todo</h3>
+<% @cars.each do |car| %>
+  For <%=h car.name %>:<br />
+  <% (car.todo_list(500) - car.todo_list).each do |todo_item| %>
+    <%= todo_item.name %> by odometer reading of <%= todo_item.odometer_reading_bad %> or <%= todo_item.date_good %>
+  <% end %>
+<% end %>
