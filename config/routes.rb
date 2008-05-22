@@ -21,8 +21,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :gas_types
 
-  map.resources :oil_records
-
   map.resources :oil_types
 
   map.resources :oil_vendors
